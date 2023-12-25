@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image" alt="Logo">
+          </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Profile</ion-card-title>
+      <!-- <ion-card-subtitle>Profile</ion-card-subtitle> -->
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="center">
+              <ion-item-divider class="phone">
+                Name
+                <ion-input class="no" type="text"  #f1="ngModel" [(ngModel)]="Emp_name" placeholder="{{Emp_name}}"
+                required></ion-input>
+              </ion-item-divider>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="center">
+              <ion-item-divider class="phone">
+                Phone No
+                <ion-input class="no" type="text" placeholder="{{Emp_phno}}" #f2="ngModel" [(ngModel)]="Emp_phno"
+                required></ion-input>
+              </ion-item-divider>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="center">
+              <ion-item-divider class="phone">
+                Alternate Phone No
+                <ion-input class="no" type="text" placeholder="{{Emp_Aphno}}" #f3="ngModel" [(ngModel)]="Emp_Aphno"
+                required></ion-input>
+              </ion-item-divider>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="center">
+              <ion-item-divider class="phone">
+                Email Id
+                <ion-input class="no" type="text" placeholder="{{Emp_eId}}" #f4="ngModel" [(ngModel)]="Emp_eId"
+                required></ion-input>
+              </ion-item-divider>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+        <ion-button (click)="updateProfile()" style="float: right;" color="tertiary">Save</ion-button>
+        <!-- <ion-button style="float: right;" color="danger">Cancel</ion-button> -->
+     
+    </ion-card-content>
+  </ion-card>
+ 
+  
+ 
+  
+ 
+
+</ion-content>
+

@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>example</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Stacked Label</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+
+  <div >
+    <form>
+      <ion-item >
+        <ion-label class="label"  position="stacked" class="label">Employer Name</ion-label>
+        <ion-input  class="input"  #f="ngModel" 
+        readonly
+        disabled
+        value="dinesh"
+        [(ngModel)]="emp_name" type="text" name="first" required>Dinesh</ion-input>
+      </ion-item><br>
+      
+      <ion-item>
+        <ion-label class="label"  position="Stacked" class="label">Employer Id</ion-label>
+        <ion-input  class="input"  #f1="ngModel"  [(ngModel)]="emp_id" type="number"  maxLength="5" name="first1" required></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="stacked">Summary</ion-label>
+        <ion-textarea
+          disabled
+          readonly
+          value="Ionic enables developers to build performant, high-quality mobile apps.">
+        </ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label class="label"  position="stacked" class="label">Type of Leave</ion-label>
+        <ion-select placeholder="  Select type"  class="select" #f2="ngModel"   name="first2" [(ngModel)]="leave_type">
+          <ion-select-option value="annual">Annual Leave</ion-select-option>
+          <ion-select-option value="causal">Causal Leave</ion-select-option>
+          <ion-select-option value="sick">Sick Leave</ion-select-option>
+          <ion-select-option value="marraje">Marraje Leave</ion-select-option>
+          <ion-select-option value="paid">Paid Leave</ion-select-option>
+        </ion-select>
+      </ion-item><br>
+    <ion-item>
+      <ion-label class="label" position="stacked" >Date</ion-label>   
+      <ion-input  class="input2" style="width: 40%;" #f3="ngModel"  [(ngModel)]="start_date" type="date" name="first3" required></ion-input>
+      <ion-input  class="input2" style="width: 40%;"  #f4="ngModel"  [(ngModel)]="end_date" type="date" name="first4" required></ion-input>
+    </ion-item><br>
+    <ion-item>
+      <ion-label class="label" position="stacked"  class="label" >Comments</ion-label>
+      <ion-input  class="input"  #f5="ngModel"  placeholder="Comments" [(ngModel)]="cmds" type="text" name="first5" required></ion-input>
+
+      
+      <!-- <ion-textarea class="input1"  #f5="ngModel"  [(ngModel)]="cmds"  name="first5" required ></ion-textarea> -->
+    </ion-item><br>
+    <ion-item>
+      <ion-label class="label" position="stacked" class="label"> Upload Documents</ion-label>
+      <input    #f6="ngModel" placeholder="Upload"  [(ngModel)]="file" type="file" name="first4" >
+
+    </ion-item><br>
+    <ion-item *ngIf="showDetails">
+      <ion-label class="label" position="stacked"  class="label" >Approver Comments</ion-label>
+      <ion-input  class="input"  #f7="ngModel" placeholder="Comments"  [(ngModel)]="approve_cmds" type="text" name="first7" required></ion-input>
+
+      <!-- <ion-textarea class="input1" style="height: 60%;"  #f7="ngModel"  [(ngModel)]="approve_cmds"  name="first7" required ></ion-textarea> -->
+    </ion-item>
+    <br>
+    <div style="margin-right: 10px;">
+      <ion-button class="ion-float-right" type="reset"  color="danger" >Cancel</ion-button>
+      <ion-button class="ion-float-right" name="2"  style="float: right;" color="success" >Apply</ion-button>
+    </div>
+    </form>
+  </div>
+ 
+</ion-content>

@@ -1,0 +1,183 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image" alt="Logo">
+          </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <div *ngIf="supervisorStatus">
+        <ion-buttons slot="start">
+          <ion-icon routerLink="/leave-application" style="margin-left: 15px;" slot="start" name="notifications"></ion-icon>
+          <ion-badge routerLink="/leave-application" slot="start" color="danger" 
+          style="position: absolute;margin-bottom:30px;border-radius: 10px;margin-left: 15px;">{{this.dataService.getpacount}}
+          </ion-badge>
+          <ion-button routerLink="/search" slot="start">
+            <ion-icon slot="start" name="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        
+      </div>
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="apply">
+  <h1 style="text-align: center;font-weight: 800;">Leave Report</h1>
+ 
+  <ion-grid class="ion-text-center">
+
+    <ion-row class="ion-margin">
+      <ion-col>
+        <form>  
+          <div *ngIf="supervisorStatus">
+            <ion-item-divider class="phone">
+              {{resConfig["emp_from"]}}
+              <ion-input class="no" #f3="ngModel" [(ngModel)]="start_date" type="text" name="first3" required
+                (ionFocus)="openDatePicker('start_date')"></ion-input>
+            </ion-item-divider>
+            
+            <ion-item-divider class="phone">
+              {{resConfig["emp_to"]}}
+              <ion-input class="no" style="width: 40%;" #f4="ngModel" [(ngModel)]="end_date" type="text" name="first4" required
+                (ionFocus)="openDatePicker('end_date')"></ion-input>
+            </ion-item-divider>
+            <!-- <ion-buttons class="phone" style="border: 2px solid black;"> -->
+              <ion-item-divider class="phone">
+                Employee Name<ion-input  class="no" readonly   type="text"  placeholder="{{ename}}"></ion-input>
+                <ion-button [disabled]="!(start_date && end_date)" style="background-color: white;"
+                (click)="getEmpname(start_date,end_date)" slot="end">
+                  <ion-icon style="color: white;" name="search"></ion-icon>
+                </ion-button>
+              </ion-item-divider>
+              <!-- <ion-button [disabled]="!(start_date && end_date)" (click)="getEmpname(start_date,end_date)" slot="end">
+                <ion-icon slot="end" name="search"></ion-icon>
+              </ion-button> -->
+            <!-- </ion-buttons> -->
+            <ion-button class="ion-float-right" name="2"  style="float: right;"
+          (click)="generateReportEmp()">My Report</ion-button>
+          <ion-button class="ion-float-right" name="2"  style="float: right;"
+          (click)="generateReportTeam()">Team Report</ion-button>
+          <!-- this is for super user -->
+          <!-- <ion-button class="ion-float-right" name="2"  style="float: right;"
+          (click)="generateReportAll()">All Report</ion-button> -->
+          </div>
+          <div *ngIf="!supervisorStatus">
+            <ion-item-divider class="phone">
+              {{resConfig["emp_from"]}}
+              <ion-input class="no" #f3="ngModel" [(ngModel)]="start_date" type="text" name="first3" required
+                (ionFocus)="openDatePicker('start_date')"></ion-input>
+            </ion-item-divider>
+            
+            <ion-item-divider class="phone">
+              {{resConfig["emp_to"]}}
+              <ion-input class="no" style="width: 40%;" #f4="ngModel" [(ngModel)]="end_date" type="text" name="first4" required
+                (ionFocus)="openDatePicker('end_date')"></ion-input>
+            </ion-item-divider>
+            <ion-button class="ion-float-right" name="2"  style="float: right;"
+          (click)="generateReportEmp()">Get Report</ion-button>
+          </div> 
+        </form>
+      </ion-col>
+    </ion-row>
+    <div style="margin-bottom: 10px;">
+      <ion-row>
+        <h3 class="count">Total Count:   {{historyCount}}</h3>
+      </ion-row>
+    </div>
+    <div *ngIf=!supervisorStatus>
+      <ion-row class="header-row">
+        <ion-col>
+          <ion-text>From Date</ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>To Date</ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>Reason</ion-text>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf=supervisorStatus>
+      <ion-row class="header-row">
+        <ion-col>
+          <ion-text>From Date</ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>To Date</ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>Name</ion-text>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    
+    <div *ngIf="showMyReport">
+      <ion-row *ngFor="let leave of leaveReportEmp.data">
+        <ion-col>
+          <ion-text [class.disabled]="!supervisorStatus && reportGenerated" (click)="getLeave(leave.leaveId, leave.userId, leave.orgId)">
+            {{ leave.fromdt }}
+          </ion-text>
+        </ion-col>
+  
+          <ion-col>
+            <ion-text>
+              {{ leave.todt }}
+            </ion-text>
+          </ion-col>
+
+            <ion-col *ngIf=!supervisorStatus>
+              <ion-text>
+                {{ leave.reason }}
+              </ion-text>
+            </ion-col>
+       
+         
+            <ion-col *ngIf=supervisorStatus>
+              <ion-text>
+                {{ leave.name }}
+              </ion-text>
+            </ion-col>
+       
+    
+          
+      </ion-row>
+    </div>
+
+    <div *ngIf="showTeamReport">
+      <ion-row *ngFor="let leave of leaveReportTeam.data">
+        <ion-col>
+          <ion-text (click)="getLeave(leave.leaveId, leave.userId, leave.orgId)">
+            {{ leave.fromdt }}
+          </ion-text>
+        </ion-col>
+  
+          <ion-col>
+            <ion-text>
+              {{ leave.todt}}
+            </ion-text>
+          </ion-col>
+    
+          <ion-col>
+            <ion-text>
+              {{ leave.name }}
+            </ion-text>
+          </ion-col>
+      </ion-row>
+    </div>
+
+  </ion-grid>
+
+
+  
+  
+</ion-content>
+

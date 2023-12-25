@@ -1,0 +1,94 @@
+{
+    "login_eng":{
+        "langcd":"eng",
+        "login_title":"Leave Management",
+        "login_signup":"Sign Up",
+        "login_new":"(New User)",
+        "login_or":"Or",
+        "login_reguser":"Registered User",
+        "login_phno":"Phone No",
+        "login_sendotp":"Send OTP",
+        "login_OTP":"OTP",
+        "login_en":"Eng",
+        "login_tn":"Tamil",
+        "login_go":"Go",
+        "sign_title":"SIGNUP",
+        "sign_en":"Eng",
+        "sign_tn":"Tamil",
+        "sign_name":"Name",
+        "sign_phone":"Phone No",
+        "sign_sendotp":"Send OTP",
+        "sign_otp":"OTP",
+        "sign_email":"Email",
+        "sign_cancel":"Cancel",
+        "sign_submit":"Submit"
+
+
+
+        
+    },
+    "login_tamil":{
+        "langcd":"tn",
+        "login_title":"",
+        "login_signup":"பதிவு செய்யவும்",
+        "login_new":"புதிய பயனர்",
+        "login_or":"அல்லது",
+        "login_reguser":"பதிவு செய்யப்பட்ட பயனர்",
+        "login_phno":"தொலைபேசி எண்",
+        "login_sendotp":"ஓடிபிஅனுப்பவும்",
+        "login_OTP":"ஓடிபி",
+        "login_en":"ஆங்கிலம்",
+        "login_tn":"தமிழ்",
+        "login_go":"உள்நுழை",
+        "sign_title":"பதிவு",
+        "sign_en":"ஆங்கிலம்",
+        "sign_tn":"தமிழ்",
+        "sign_name":"பெயர்",
+        "sign_phone":"தொலைபேசி எண்",
+        "sign_sendotp":"ஓடிபிஅனுப்பவும்",
+        "sign_email":"மின்னஞ்சல்",
+        "sign_cancel":"ரத்து செய்",
+        "sign_submit":"சமர்ப்பிக்கவும்"
+
+    },
+    "home":{
+        "emp_details":"Employee Details",
+        "apply":"Apply Leave",
+        "emp_name":"Employer Name",
+        "emp_id":"Employer Id",
+        "leave_type":"Type Of Leave",
+        "date":"Date",
+        "cmds":"Comments",
+        "upld_doc":"Upload Documents",
+        "approve_cmds":"Approver Comments",
+        "save":"Apply",
+        "cancel":"Cancel"
+    },
+    "supervisor":{
+        "sup_details":"Supervisor Details",
+        "apply":"Apply Leave",
+        "sup_name":"Supervisor Name",
+        "sup_id":"Supervisor_Id",
+        "leave_type":"Type Of Leave",
+        "date":"Date",
+        "cmds":"Comments",
+        "upld_doc":"Upload Documents",
+        "approve_cmds":"Approver Comments",
+        "save":"Apply",
+        "cancel":"Cancel"
+    },
+    "emp-dashboard":{
+        "title":"Employee Dashboard",
+        "leave_balance":"Leave Balance",
+        "planned":"Planned Leave",
+        "history":"Leave History",
+        "apply":"Apply Leave For Today"
+    },
+    "sup-dashboard":{
+        "title":"Supervisor Dashboard",
+        "worker_leave":"Worker On Leave Today",
+        "planned":"Planned Leave"
+    }
+
+
+}

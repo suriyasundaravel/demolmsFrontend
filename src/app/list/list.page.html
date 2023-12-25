@@ -1,0 +1,208 @@
+<ion-header>
+  <ion-header>
+    <ion-row>
+      <ion-col size="6">
+        <ion-back-button  class="back" defaultHref="/"></ion-back-button>
+      </ion-col>
+      <ion-col size="6" class="col">
+        <ion-buttons class="bu">
+          <ion-button>
+            <ion-icon class="search" name="notifications"></ion-icon>
+          </ion-button>
+          <!-- <ion-button>
+            <ion-icon class="search" name="search"></ion-icon>
+          </ion-button> -->
+          <ion-menu-button slot="end" class="menu" class="menu"></ion-menu-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-header>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <h1 class="title">{{resConfig["supervisor_title"]}}</h1><br>
+  <h3 class="title">{{resConfig["supervisor_sub"]}}</h3>
+  <div  class="flex">
+     <ion-icon class="eng" name="person"></ion-icon>
+    <ion-toggle (ionChange)="toggleLang($event)" class="tog" color="light"></ion-toggle>
+    <ion-icon class="tamil" name="people"></ion-icon>
+  </div>
+   
+  <div *ngIf="label1">
+    <form>
+      <ion-item>
+        <ion-label class="label" *ngIf="label"  position="fixed" class="label">Supervisor Name</ion-label>
+        <ion-label class="label"   position="floating" class="label">Employee Name</ion-label> 
+        <ion-input  class="input"  *ngIf="label" #f="ngModel"  [(ngModel)]="sup_name" type="text" 
+        name="first" required></ion-input>
+        <ion-input #f="ngModel" placeholder=" Name"  [(ngModel)]="emp_name" type="text" 
+        name="first" required>{{singleData}}</ion-input>
+        <ion-icon *ngIf="searchlist" class="search1" 
+        slot="end" (click)="openIonModal()" name="search"></ion-icon>
+      </ion-item>
+      <div class="otp" *ngIf="showDetails">
+        <a class="link"  (click)="openIonModals()" role="button">list</a>
+      </div>
+      <!-- <br> -->
+      <!-- <ion-item>
+         <ion-label class="label" *ngIf="label"  position="fixed" class="label">Supervisor Id</ion-label> -->
+        <!-- <ion-label  position="floating" class="label">Employee Id</ion-label> -->
+        <!-- <ion-input class="label" class="input" *ngIf="label" #f1="ngModel"  [(ngModel)]="sup_id" type="text" maxLength="5" name="first1" required></ion-input>
+        <ion-input class="label"   placeholder="  Id" #f1="ngModel"  [(ngModel)]="emp_id" type="text" maxLength="5" name="first1" required>{{singleId}}</ion-input>
+
+      </ion-item>
+      <br> -->
+      <ion-item>
+        <ion-label class="label" position="floating" class="label">Type of Leave</ion-label>
+        <ion-select   #f2="ngModel"   name="first2" [(ngModel)]="leave_type">
+          <ion-select-option value="annual">Annual Leave</ion-select-option>
+          <ion-select-option value="causal">Causal Leave</ion-select-option>
+          <ion-select-option value="sick">Sick Leave</ion-select-option>
+          <ion-select-option value="marraje">Marraje Leave</ion-select-option>
+          <ion-select-option value="paid">Paid Leave</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <!-- <br> -->
+    <ion-item>
+      <ion-label class="label" position="fixed" class="label">From Date</ion-label>   
+      <ion-input    #f3="ngModel"  [(ngModel)]="from_date" type="date" name="first3" required></ion-input>
+      <!-- <ion-input  class="input2"  #f4="ngModel"  [(ngModel)]="to_date" type="date" name="first4" required></ion-input> -->
+    </ion-item>
+
+    <!-- <br> -->
+    <ion-item>
+      <ion-label class="label" position="fixed" class="label">To Date</ion-label>   
+      <!-- <ion-input  class="input2"  #f3="ngModel"  [(ngModel)]="from_date" type="date" name="first3" required></ion-input> -->
+      <ion-input   #f4="ngModel"  [(ngModel)]="to_date" type="date" name="first4" required></ion-input>
+    </ion-item>
+    <!-- <br> -->
+    <ion-item>
+      <ion-label class="label" position="floating"  class="label" >Comments</ion-label>
+      <!-- <ion-input  class="input"  #f5="ngModel"   [(ngModel)]="reson" type="text" name="first5" required></ion-input> -->
+
+      
+      <ion-textarea   #f5="ngModel" placeholder=" Comments"  [(ngModel)]="reson"  name="first5" required ></ion-textarea>
+    </ion-item><br>
+    <ion-item>
+      <ion-label class="label" position="fixed" class="label"> Upload Documents</ion-label>
+      <input    #f6="ngModel" placeholder="Upload"  [(ngModel)]="file" type="file" name="first4" >
+
+    </ion-item>
+    <!-- <br> -->
+    <ion-item *ngIf="Details">
+      <ion-label class="label" position="floating"  class="label" >Approver Comments</ion-label>
+      <ion-input   #f7="ngModel"  [(ngModel)]="approve_cmds" type="text" name="first7" required></ion-input>
+
+      <!-- <ion-textarea class="input1" style="height: 60%;"  #f7="ngModel"  [(ngModel)]="approve_cmds"  name="first7" required ></ion-textarea> -->
+    </ion-item>
+    <!-- <br> -->
+    <div style="margin-right: 10px;">
+      <ion-button class="ion-float-right" type="reset"  color="danger" >Cancel</ion-button>
+      <!-- <ion-button class="ion-float-right" *ngIf="label" name="2"  style="float: right;" color="success" (click)="saveSupRecord()">Apply</ion-button> -->
+
+      <ion-button class="ion-float-right"  name="2"  style="float: right;" color="success" (click)="saveEmpRecord()">Apply</ion-button>
+    </div>
+    </form>
+  </div>
+
+
+  <div *ngIf="label">
+    <form>
+      <!-- <ion-item-group> -->
+        <!-- <ion-item> -->
+      <!-- <ion-item > -->
+        <!-- <ion-label class="label"  position="floating" class="label">{{resConfig["supervisor_name"]}}</ion-label>
+        <ion-input   #f="ngModel" placeholder="    Name" [(ngModel)]="sup_name" type="text" name="first" required></ion-input> -->
+      <!-- </ion-item> -->
+        <!-- </ion-item> -->
+      <!-- </ion-item-group> -->
+      <!-- <br> -->
+      <!-- <ion-item>
+      <ion-item>
+        <ion-label class="label"  position="floating" class="label">Supervisor Id</ion-label>
+        <ion-input  #f1="ngModel"  [(ngModel)]="sup_id" type="number" placeholder="   Id" maxLength="5" name="first1" required></ion-input>
+      </ion-item>
+    </ion-item>
+      <br> -->
+      <ion-item>
+      <!-- <ion-item> -->
+        <ion-label class="label"  position="floating" class="label">{{resConfig["supervisor_type"]}}</ion-label>
+        <ion-select   #f2="ngModel"   name="first2" [(ngModel)]="leave_type1">
+          <ion-select-option value="Annual">Annual Leave</ion-select-option>
+          <ion-select-option value="Causal">Causal Leave</ion-select-option>
+          <ion-select-option value="Sick">Sick Leave</ion-select-option>  
+          <ion-select-option value="Marraje">Marraje Leave</ion-select-option>
+          <ion-select-option value="Paid">Paid Leave</ion-select-option>
+        </ion-select>
+      <!-- </ion-item> -->
+      </ion-item>
+      <!-- <br> -->
+    <!-- <ion-item> -->
+      <ion-item>
+      <ion-label class="label" position="fixed" >{{resConfig["supervisor_fdate"]}}</ion-label>   
+      <ion-input    #f3="ngModel"  [(ngModel)]="start_date" type="date" name="first3" required></ion-input>
+      <!-- <ion-input  class="input2" style="width: 40%;"  #f4="ngModel"  [(ngModel)]="end_date" type="date" name="first4" required></ion-input> -->
+    <!-- </ion-item> -->
+      </ion-item>
+    <!-- <br> -->
+    <ion-item>
+      <ion-label class="label" position="fixed" >{{resConfig["supervisor_tdate"]}}</ion-label>   
+      <!-- <ion-input  class="input2" style="width: 40%;" #f3="ngModel"  [(ngModel)]="start_date" type="date" name="first3" required></ion-input> -->
+      <ion-input    #f4="ngModel"  [(ngModel)]="end_date" type="date" name="first4" required></ion-input>
+    <!-- </ion-item> -->
+      </ion-item><br>
+    <ion-item>
+    <!-- <ion-item> -->
+      <ion-label class="label" position="floating"   class="label" >{{resConfig["supervisor_comments"]}}</ion-label>
+      <!-- <ion-input  class="input"  #f5="ngModel"  placeholder="Comments" [(ngModel)]="cmds" type="text" name="first5" required></ion-input> -->
+
+      
+      <ion-textarea   #f5="ngModel" placeholder="  comments"  [(ngModel)]="cmds"  name="first5" required ></ion-textarea>
+    <!-- </ion-item> -->
+    </ion-item>
+    <!-- <br> -->
+    <!-- <ion-item> -->
+      <ion-item>
+      <ion-label class="label" position="fixed" class="label">{{resConfig["supervisor_"]}}</ion-label>
+      <input    #f6="ngModel" placeholder="Upload"  [(ngModel)]="file" type="file" name="first4" >
+
+    <!-- </ion-item> -->
+      </ion-item>
+    <!-- <br> -->
+    <ion-item *ngIf="showDetails">
+      <ion-label class="label" position="fixed"  class="label" >Approver Comments</ion-label>
+      <ion-input    #f7="ngModel" placeholder="Comments"  [(ngModel)]="approve_cmds1" type="text" name="first7" required></ion-input>
+
+      <!-- <ion-textarea class="input1" style="height: 60%;"  #f7="ngModel"  [(ngModel)]="approve_cmds"  name="first7" required ></ion-textarea> -->
+    </ion-item>
+    <!-- <br> -->
+    <div style="margin-right: 10px;">
+      <ion-button class="ion-float-right" type="reset"  color="danger" >Cancel</ion-button>
+      <ion-button class="ion-float-right" name="2"  style="float: right;" color="success"  (click)="saveSupRecord()">Apply Leave</ion-button>
+    </div>
+    </form>
+  </div>
+ 
+</ion-content>
+<ion-tab-bar class="tab" slot="bottom">
+  <ion-tab-button tab="return" routerLink="/sup-dashboard">
+    
+    <ion-icon name="person"></ion-icon>
+        <!-- <i class="fa fa-quote-right"></i> -->
+        <ion-label>DashBoard</ion-label>
+     
+    
+  </ion-tab-button>
+  <ion-tab-button tab="Order History" routerLink="/supervisor">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    <ion-label>Apply Leave</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="View Brouchure" routerLink="/planned-leave">
+    <ion-icon name="browsers"></ion-icon>
+    <ion-label>Leave Planner</ion-label>
+  </ion-tab-button>
+ 
+  <ion-tab-button tab="login" routerLink="/eol">
+    <ion-icon name="people"></ion-icon>
+    <ion-label>EOL</ion-label>
+  </ion-tab-button>
+  </ion-tab-bar>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"  class="back" defaultHref="/"></ion-back-button>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 style="text-align: center;">Theme</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>
+            Dark Theme
+          </ion-label>
+          <ion-toggle (ionChange)="toggoleEvent($event)"></ion-toggle>
+            
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Dark Blue Theme
+          </ion-label>
+          <ion-toggle (ionChange)="toggoleEvent1($event)"></ion-toggle>
+            
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Crystal Theme
+          </ion-label>
+          <ion-toggle (ionChange)="toggoleEvent2($event)"></ion-toggle>      
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            light Theme 1
+          </ion-label>
+          <ion-toggle (ionChange)="toggoleEvent3($event)"></ion-toggle>      
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            light Theme 2
+          </ion-label>
+          <ion-toggle (ionChange)="toggoleEvent4($event)"></ion-toggle>      
+        </ion-item>
+      </ion-col>
+      <ion-item>
+        <ion-label>
+          light1
+        </ion-label>
+        <ion-toggle (ionChange)="toggoleEvent5($event)"></ion-toggle>      
+      </ion-item>
+    </ion-row>
+  </ion-grid>
+
+  
+  
+
+
+</ion-content>

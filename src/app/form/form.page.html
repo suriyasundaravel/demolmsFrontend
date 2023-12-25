@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-row>
+    <ion-col size="6">
+<ion-buttons>
+
+  <ion-back-button class="back" defaultHref="/"></ion-back-button>
+
+</ion-buttons>
+    </ion-col>
+<ion-col>
+
+</ion-col>
+</ion-row>
+</ion-header>
+
+<ion-content padding class="bg-class">
+  <div class="bg_full">
+    <!-- <div class="flex"> -->
+      <h6 class="head">{{resConfig["sign_title"]}}</h6>
+  
+      <!-- <ion-label class="eng">Eng</ion-label>
+      <ion-toggle (ionChange)="toggleLang($event)" class="tog" color="light"></ion-toggle>
+      <ion-label class="tamil">Tam</ion-label> -->
+    <!-- </div> -->
+      <!-- <br> -->
+    <div class="center">
+      <form style="margin-top: 30px;">
+        <ion-item class="phone">
+          <ion-input #f="ngModel" type="text" [(ngModel)]="u_name"
+          placeholder="{{resConfig.sign_name}}" name="first" required></ion-input>
+        </ion-item>
+        <ion-item class="phone">
+          <ion-input #f3="ngModel" type="text" [(ngModel)]="org_code"
+          placeholder="{{resConfig.sign_org}}" name="first3" required></ion-input>
+        </ion-item>
+
+        <ion-item class="phone">
+          <ion-input #f4="ngModel" type="text" [(ngModel)]="email"
+          placeholder="{{resConfig.sign_email}}" name="first4" required></ion-input>
+        </ion-item>
+        
+        <ion-item class="phone">
+          <ion-input #f2="ngModel" type="text" [(ngModel)]="ph_no1"
+          placeholder="{{resConfig.sign_ph_pri}}" name="first1" required></ion-input>
+        </ion-item>
+        <h6 class="or">(Or)</h6>
+        <ion-item class="phone">
+          <ion-input #f1="ngModel" type="text" [(ngModel)]="Ph_no2"
+          placeholder="{{resConfig.sign_ph}}" name="first1" required></ion-input>
+        </ion-item>
+        <div class="otp">
+          <ion-button color="tertiary" (click)="genOTP()">{{resConfig["sign_sendotp"]}}</ion-button>
+          <!-- <a href="#0" role="button" (click)="genOTP()">Send OTP</a> -->
+        </div>
+
+        <ion-item class="phone">
+          <ion-input #f5="ngModel" class="no" type="number" [(ngModel)]="user_otp"
+           placeholder="{{resConfig.sign_otp}}" name="first5" required></ion-input>
+        </ion-item>
+        
+        
+
+        <ion-row>
+          <ion-col>
+            <ion-button class="ion-float-right" type="reset"  color="danger">{{resConfig.sign_cancel}}</ion-button>
+            <ion-button #subbtn  class="ion-float-right" type="submit"  color="success" (click)="regUser()">{{resConfig.sign_submit}}</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+  </div>
+</ion-content>

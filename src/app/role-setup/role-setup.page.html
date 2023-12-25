@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image" alt="Logo">
+          </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <div *ngIf="supervisorStatus">
+        <ion-buttons slot="start">
+          <ion-icon routerLink="/leave-application" style="margin-left: 15px;" slot="start" name="notifications"></ion-icon>
+          <ion-badge routerLink="/leave-application" slot="start" color="danger" 
+          style="position: absolute;margin-bottom:30px;border-radius: 10px;margin-left: 15px;">{{this.dataService.getpacount}}
+          </ion-badge>
+          <ion-button routerLink="/search" slot="start">
+            <ion-icon slot="start" name="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        
+      </div>
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<h3 style="font-weight: 800;text-align: center;">Team Leave</h3>
+    <ion-grid class="ion-text-center">
+
+      <ion-row class="ion-margin">
+        <ion-col>
+          <ion-title>
+            <ion-text color="default">
+              <ion-searchbar [(ngModel)]="name" 
+               showcancelButton="focus" animated></ion-searchbar>
+             <ion-button class="ion-float-right" (click)="search()">Search</ion-button><br>
+            </ion-text>
+          </ion-title>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class="header-row">
+        <ion-col>
+          <ion-text>Emp_Id</ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>Name</ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>Email_Id</ion-text>
+        </ion-col>
+      </ion-row>
+  
+  
+      <ion-row *ngFor="let item of empNameresData.data">
+        <ion-col>
+          <ion-text (click)="goempleaveapply(item.user_id, item.name)">
+            {{item.empl_id}}
+          </ion-text>
+        </ion-col>
+  
+          <ion-col>
+            <ion-text>
+              {{item.name}}
+            </ion-text>
+          </ion-col>
+    
+          <ion-col>
+            <ion-text>
+              {{item.email_id}}
+            </ion-text>
+          </ion-col>
+      </ion-row>
+  
+    </ion-grid>
+
+
+  
+  
+</ion-content>
+<ion-tab-bar class="tab" slot="bottom">
+  <div *ngIf="!supervisorStatus" class="footer-buttons">
+    <ion-tab-button tab="Order History" routerLink="/apply-leave">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Apply Leave</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="View Brouchure" routerLink="/planned-leave">
+      <ion-icon name="browsers"></ion-icon>
+      <ion-label>My Plan</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="View Brouchure" routerLink="/permission-apply">
+      <ion-icon name="logo-pinterest"></ion-icon>
+      <ion-label>Permission</ion-label>
+    </ion-tab-button>
+    
+  </div>
+  
+
+  <div *ngIf="supervisorStatus" class="footer-buttons">
+    <ion-tab-button tab="Order History" routerLink="/supervisor">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Apply Leave</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="View Brouchure" routerLink="/sup-dashboard">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Sup-Dash</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="login" routerLink="/leave-application">
+      <ion-icon name="create-outline"></ion-icon>
+      <ion-label>Pending Approvals</ion-label>
+    </ion-tab-button>
+  </div>
+</ion-tab-bar>
+

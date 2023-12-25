@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <!-- <ion-back-button defaultHref="/"></ion-back-button> -->
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image1" alt="Logo">
+          </ion-avatar>
+          <h2 style="font-weight: 600;font-size: 19px;color:#800000;">{{companyName}}</h2>
+    </ion-buttons>
+    <ion-buttons slot="end">
+
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+<ion-content padding class="emp-dash">
+  <div>
+    <ion-card>
+      <ion-card-header>
+  
+          <ion-card-title>Dashboard</ion-card-title>
+         
+        <ion-card-subtitle style="color: #800000;font-weight: 600;margin-bottom: 5px;">Leave Balance</ion-card-subtitle>
+        <!-- <div  class="circle-progress-container"> -->
+          <ion-row>
+            <ion-col *ngFor="let lblnc of this.lblncResData" size="4" >
+              <circle-progress 
+           [percent]="((lblnc.leaveBalance/lblnc.totalLeaves)*100)" [title]="lblnc.leaveType"
+          [subtitle]="lblnc.leaveBalance + ' / ' + lblnc.totalLeaves" [options]="optionsA"></circle-progress>
+            </ion-col>
+          </ion-row>
+          <!-- <circle-progress *ngFor="let lblnc of this.lblncResData"
+           [percent]="((lblnc.lbal/lblnc.ltotal)*100)" [title]="lblnc.ltype"
+          [subtitle]="lblnc.lbal + ' / ' + lblnc.ltotal" [options]="optionsA"></circle-progress> -->
+        <!-- </div> -->
+        
+      </ion-card-header>
+      </ion-card>
+      <br>
+      <ion-card >
+        <ion-card-header>
+          <ion-card-title>{{resConfig["emp_upcoming"]}}</ion-card-title></ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-row>
+            <ion-col size="6" style="text-align: left;">
+              <ion-label class="header">{{resConfig["emp_date"]}}</ion-label>
+            </ion-col>
+            <ion-col size="6" style="text-align: left;">
+              <ion-label class="header">{{resConfig["emp_desc"]}}</ion-label>
+            </ion-col>
+           
+          </ion-row>
+          <div [ngClass]="{'limitTextHeight': isReadMore}">
+            <ion-row *ngFor="let data of this.getUpcoomingData">
+              <ion-col size="6" style="text-align: left;">
+                <ion-text>{{data.from_dt}}</ion-text>
+                <!-- <a style="cursor: pointer;">{{data.Dates}}</a> -->
+              </ion-col>
+              <ion-col size="6" style="text-align: left;">
+                <ion-text>{{data.holiday_name}}</ion-text>
+              </ion-col>
+            </ion-row>
+          </div>
+          <!-- <button class="header" type="button" (click)="showText()">
+            {{ isReadMore ? 'Show More': 'Show Less' }}
+          </button> -->
+        </ion-card-content>
+     
+      </ion-card>
+  </div>
+</ion-content>
+<!-- <ion-tabs> -->
+  <ion-tab-bar class="tab" slot="bottom">
+    <div *ngIf="!supervisorStatus" class="footer-buttons">
+      <ion-tab-button tab="Order History" routerLink="/apply-leave">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <ion-label>Apply Leave</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="View Brouchure" routerLink="/planned-leave">
+        <ion-icon name="browsers"></ion-icon>
+        <ion-label>My Plan</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="View Brouchure" routerLink="/permission-apply">
+        <ion-icon name="logo-pinterest"></ion-icon>
+        <ion-label>Permission</ion-label>
+      </ion-tab-button>
+    </div>
+    
+  
+    <div *ngIf="supervisorStatus" class="footer-buttons">
+      <ion-tab-button tab="Order History" routerLink="/supervisor">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <ion-label>Apply Leave</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="View Brouchure" routerLink="/sup-dashboard">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Sup-Dash</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="login" routerLink="/leave-application">
+        <ion-icon name="create-outline"></ion-icon>
+        <ion-label>Pending Approvals</ion-label>
+      </ion-tab-button>
+    </div>
+  </ion-tab-bar>
+<!-- </ion-tabs> -->
+

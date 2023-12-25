@@ -1,0 +1,93 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image" alt="Logo">
+          </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <div *ngIf="supervisorStatus">
+        <ion-buttons slot="start">
+          <ion-icon routerLink="/leave-application" style="margin-left: 15px;" slot="start" name="notifications"></ion-icon>
+          <ion-badge routerLink="/leave-application" slot="start" color="danger" 
+          style="position: absolute;margin-bottom:30px;border-radius: 10px;margin-left: 15px;">{{this.dataService.getpacount}}
+          </ion-badge>
+          <ion-button routerLink="/search" slot="start">
+            <ion-icon slot="start" name="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>      
+      </div>
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Leave Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ng-container *ngFor="let item of getindividualdataRes">
+          <ion-item>
+            <ion-label>Dates</ion-label>
+            <ion-note slot="end">{{ dateFormat(item.fromdt) }} / {{ dateFormat(item.todt) }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Leave Type</ion-label>
+            <ion-note slot="end">{{ item.leavetypeDesc }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Reason</ion-label>
+            <ion-note slot="end">{{ item.reason }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-note slot="end">{{ item.status }}</ion-note>
+          </ion-item>
+          <div *ngIf="!item.app_comments">
+            <ion-item>
+              <ion-label class="comment-text">Approver Comments</ion-label>
+              <ion-input slot="end" [(ngModel)]="approval_comment"   placeholder="{{item.app_comments}}"></ion-input>
+            </ion-item>
+          </div>
+          <div *ngIf="item.APP_COMMENTS">
+            <ion-item>
+              <ion-label class="comment-text">App_Comments</ion-label>
+              <ion-note slot="end" class="comment-text">{{ item.app_comments }}</ion-note>
+            </ion-item>
+          </div>
+          <br>
+        
+          <!-- <div class="ion-padding"> -->
+            <ion-button color="tertiary" [disabled]="item.status === 'APR'" (click)="approve(item.leaveId,item.userId,item.orgId,item.app_comments)">Approve</ion-button>
+            <ion-button  color="tertiary" [disabled]="item.status === 'REJ'" 
+            (click)="reject(item.leaveId,item.userId,item.orgId,item.days,item.leavetypeDesc,item.app_comments)">Reject</ion-button>
+            <ion-button   color="tertiary" [disabled]="!isCancelEnabled"  
+            (click)="cancel(item.leaveId,item.userId,item.orgId)">Cancel </ion-button>
+          <!-- </div> -->
+        </ng-container>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-tab-bar class="tab" slot="bottom">
+  <div class="footer-buttons">
+    <ion-tab-button tab="Order History" routerLink="/supervisor">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Apply Leave</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="View Brouchure" routerLink="/sup-dashboard">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Sup-Dash</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="login" routerLink="/leave-application">
+      <ion-icon name="create-outline"></ion-icon>
+      <ion-label>Pending Approvals</ion-label>
+    </ion-tab-button>
+  </div>
+</ion-tab-bar>
+

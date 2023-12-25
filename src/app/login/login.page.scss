@@ -1,0 +1,96 @@
+
+
+  
+  .head{
+      text-align: center;
+      // color: #000080;
+      font-weight: 800;
+  }
+
+  #logo{
+  cursor:pointer;
+  height:70px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  --background:transparent;
+  // margin-bottom: 0px;
+}
+  .sign{
+      text-align: center;
+      font-weight: 600;
+      // color: #000080;
+      cursor: pointer;
+  
+  }
+  .new{
+      text-align: center;
+      // color: #000080;
+  
+  }
+  .or{
+      text-align: center;
+      // color: #000080;
+  
+  }
+  .otp{
+    // color: #9c042a;
+    text-align: right;
+    // margin: 0%;
+    // margin-left: 160px;
+    // margin-bottom: 0%;
+    // font-size: 12px;
+    // font-weight: 650;/
+  }
+  .company{
+    // color: rgb(20, 114, 158);
+     text-align: center;  
+     font-weight: 600;
+  }
+  .center{
+      // border: 1px solid black;
+      width: fit-content;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 10px;
+    }
+  .phone{
+      margin-top: 15px;
+      margin-bottom: 5px;
+      justify-content: center;
+      width: 80%;
+      border-radius: 8px;
+      border-width: thin;
+      border-style: solid;
+  
+  }
+
+  
+
+    .clear{
+      clear: both;
+    }
+
+    .go{
+      clear: both;
+      // color:  #e8efdc;
+      
+      margin-top: 5px;
+      // margin-left: 120px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 2px;
+      width: 90px;
+      height: 30px;
+      font-size: 11px;
+      font-weight: 900; 
+      // background-color: #001064;
+    }
+
+    .no{
+      font-weight: 600;
+      color: #080080;
+    }
+    

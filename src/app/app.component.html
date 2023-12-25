@@ -1,0 +1,87 @@
+<ion-app>
+  <ion-menu swipe-gesture="false" side="start" menuId="first" contentId="main">
+    <ion-content>
+      <ion-row>
+        <ion-col size="3">
+          <!-- <img id="logo" style="width: 100%; height: 100%; align-items: center;" routerLink="/home1" src="./assets/images/login_bg1.png" /> -->
+        </ion-col>
+        <ion-col size="3">
+          <!-- <img id="logo" style="float: right;" routerLink="/home1" src="./assets/images/login_bg.png" /> -->
+        </ion-col>
+        <ion-col>
+          <ion-buttons>
+            <ion-button (click)="closeMenu()">
+              <ion-icon name="close"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      <ion-list>
+        <ion-menu-toggle>
+          <div *ngIf="!isSupervisor()">
+            <ion-item style="cursor: pointer;" routerLink="/holidays">
+              <ion-icon name="calendar-number-outline"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Holidays</ion-label>
+            </ion-item>
+            <ion-item style="cursor: pointer;" routerLink="/calender">
+              <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Report</ion-label>
+            </ion-item>
+            <ion-item style="cursor: pointer;" routerLink="/permission-apply">
+              <ion-icon  name="add-circle-outline"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Apply Permission</ion-label>
+            </ion-item>
+    
+            <ion-item style="cursor: pointer;" routerLink="/leave-history">
+              <ion-icon name="logo-deviantart"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Leave History</ion-label>
+            </ion-item>
+    
+            <ion-item style="cursor: pointer;" routerLink="/plan-history">
+              <ion-icon name="logo-pinterest"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Plan History</ion-label>
+            </ion-item>
+            
+
+          </div>
+          
+  
+          <div *ngIf="isSupervisor()">
+            <ion-item style="cursor: pointer;" routerLink="/holidays">
+              <ion-icon name="calendar-number-outline"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Holidays</ion-label>
+            </ion-item>
+            <ion-item style="cursor: pointer;" routerLink="/calender">
+              <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Report</ion-label>
+            </ion-item>
+            <ion-item style="cursor: pointer;" routerLink="/eol">
+              <ion-icon name="document"></ion-icon>&nbsp;&nbsp;<ion-label>EOL</ion-label>
+            </ion-item>
+  
+            <ion-item style="cursor: pointer;" routerLink="/supervisor">
+              <ion-icon  name="add-circle-outline"></ion-icon>&nbsp;&nbsp;<ion-label>Apply Leave</ion-label>
+            </ion-item>
+            <ion-item style="cursor: pointer;" routerLink="/sup-leavehistory">
+              <ion-icon name="logo-deviantart"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Leave History</ion-label>
+            </ion-item>
+    
+          </div>
+          <ion-item style="cursor: pointer;" routerLink="/profile">
+            <ion-icon name="person"></ion-icon>&nbsp;&nbsp;
+            <ion-label>Profile</ion-label>
+          </ion-item>
+          <ion-item style="cursor: pointer;" routerLink="/login">
+            <ion-icon name='log-out-outline'></ion-icon>&nbsp;&nbsp;
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        
+        
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

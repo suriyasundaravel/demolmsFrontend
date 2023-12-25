@@ -1,0 +1,191 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// global.scss
+@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';
+// global.scss
+@import '~swiper/scss';
+@import '~swiper/scss/autoplay';
+@import '~swiper/scss/keyboard';
+@import '~swiper/scss/pagination';
+@import '~swiper/scss/scrollbar';
+@import '~swiper/scss/zoom';
+@import '~@ionic/angular/css/ionic-swiper';
+
+/* Set background color for all pages */
+ion-header{
+    --ion-background-color: #f5f5f5;
+  }
+  ion-avatar img.logo-image{
+    width: 30px; 
+    height: 30px; 
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 1px solid yellow;
+    // margin-left: 20px;
+  }
+  ion-avatar img.logo-image1{
+    width: 30px; 
+    height: 30px; 
+    margin-top: 20px;
+    border-radius: 20px;
+    // border: 1px solid yellow;
+    margin-left: 20px;
+  }
+
+  ion-content.sup-dash
+  { 
+    ion-label.head{
+    color:#800000;
+    }
+    div.header{
+      color:#ff4961;
+      font-weight: 400;
+    }
+  }
+  ion-content.leave-application ion-lable.head{
+    color:#800000;
+  }
+  ion-content.leave-application ion-button{
+    --background: #217901;
+    color: white;
+  }
+
+/* Set text color for all pages */
+ion-content,
+ion-header,
+ion-footer,
+ion-title,
+ion-label,
+ion-button,
+ion-item,
+ion-select,
+ion-textarea,
+ion-card-title,
+ion-icon,
+ion-card-subtitle,
+ion-text,
+ion-back-button,
+ion-select-option,
+ion-select,
+ion-input,
+h1,h2,h3,h4,h6,a{
+  color: #080080;
+  font-size: 14px;
+  text-transform: none;
+}
+ion-card-title{
+  text-align: center;
+  font-weight: 800;
+}
+
+/* Set background color for login page input fields */
+ion-content.login ion-input,
+ion-content.login ion-select,
+ion-content.login ion-textarea {
+  --background: white;
+  color: #040115fc;
+  color: #191818fc;
+}
+
+ion-content.login ion-button {
+    --background: #217901;
+    
+    --background: #000;
+    color: white;
+    font-size: 12px;
+  }
+ion-content.emp-dash{
+  button.header{
+    color: #800000;
+}  
+  ion-label.header{
+    color: #800000;
+    font-weight: 800;
+}  
+}
+
+ion-content.holiday ion-label.head{
+    color:#800000;
+}
+
+  ion-content.approve
+   ion-button {
+    --background: #217901;
+    color: white;
+  }
+  ion-content.approve
+   ion-select.input {
+
+    color: #080080;
+  }
+  ion-content.leave-history{
+    h3.count{
+      color: #080080;
+      float: left;
+      font-weight: 600;
+      margin-bottom: 0px;
+    }
+    ion-label.header{
+      color: #800000;
+      font-weight: 600;
+     } 
+     div.header{
+      color:#ff4961;
+      font-weight: 400;
+    } 
+
+  } 
+   
+   ion-content.plan-details ion-button.planToleave{
+    --background: #217901;
+    color: white;
+   }
+   ion-content.apply{
+    h3.count{
+      color: #080080;
+      float: left;
+      font-weight: 600;
+      margin-bottom: 0px;
+    }
+    ion-button.right{
+      --background: #217901;
+      color: white;
+     }
+     ion-item-divider.phone{
+      color: #080080;
+
+     }
+   } 
+   ion-content.plan ion-button.right{
+    --background: #217901;
+    color: white;
+   }
+  
+  
+

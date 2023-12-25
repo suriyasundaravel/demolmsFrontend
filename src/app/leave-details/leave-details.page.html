@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image" alt="Logo">
+          </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Leave Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ng-container *ngFor="let item of getindividualdataRes">
+          <ion-item>
+            <ion-label>Dates</ion-label>
+            <ion-note slot="end">{{ item.fromdt }} / {{ item.todt }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Leave Type</ion-label>
+            <ion-note slot="end">{{ item.leavetypeDesc }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Reason</ion-label>
+            <ion-note slot="end">{{ item.reason }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-note slot="end">{{ item.status }}</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="comment-text">Approver Comments</ion-label>
+            <ion-note slot="end" class="comment-text">{{ item.app_comments }}</ion-note>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="ion-padding">
+    <ion-button expand="full" color="tertiary" (click)="cancelLeave()" [disabled]="!isCancelEnabled">Cancel Leave</ion-button>
+  </div>
+</ion-content>
+<ion-tab-bar class="tab" slot="bottom">
+    <ion-tab-button tab="Order History" routerLink="/apply-leave">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Apply Leave</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="View Brouchure" routerLink="/planned-leave">
+      <ion-icon name="browsers"></ion-icon>
+      <ion-label>My Plan</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="View Brouchure" routerLink="/permission-apply">
+      <ion-icon name="logo-pinterest"></ion-icon>
+      <ion-label>Permission</ion-label>
+    </ion-tab-button>
+  
+</ion-tab-bar>
+
+

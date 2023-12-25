@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image" alt="Logo">
+          </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+<ion-content class="holiday">
+  <h2 style="text-align: center;font-weight: 600;">{{resConfig["holiday_title"]}}</h2>
+  <div style="padding-left: 1%;">
+<ion-row class="row">
+  <ion-col class="row" size="6">
+    <ion-label class="head">{{resConfig["holiday_date"]}}</ion-label>
+  </ion-col>
+  <!-- <ion-col  class="row" size="4">
+    <ion-label class="head">{{resConfig["holiday_day"]}}</ion-label>
+  </ion-col> -->
+  <ion-col class="row" size="6">
+    <ion-label class="head">{{resConfig["holiday_reason"]}}</ion-label>
+  </ion-col>
+</ion-row><br>
+<ion-row class="row" *ngFor="let item of holidaysData">
+  <ion-col class="row" size="6">
+    <ion-label class="head1">{{item.fromdt}}</ion-label>
+  </ion-col><br>
+  <!-- <ion-col class="row" size="4">
+    <ion-label class="head1">{{item.Day}}</ion-label>
+  </ion-col><br> -->
+  <ion-col class="row" size="6">
+    <ion-label class="head1">{{item.name}}</ion-label>
+  </ion-col><br>
+</ion-row>
+</div>
+</ion-content>

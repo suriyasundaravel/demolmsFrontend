@@ -1,0 +1,40 @@
+
+// .logo-image {
+//   width: 50px; 
+//   height: 50px; 
+//   border-radius: 20px;
+// }
+
+
+.center{
+    // border: 1px solid black;
+    width: fit-content;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  .phone{
+    // margin-top: 10px;
+    // margin-bottom: 2px;
+    justify-content: center;
+    width: 100%;
+    // border-radius: 8px;
+    // border-width: thin;
+    // border-style: solid;
+    // border: 1px solid #080080;
+    color: #000080;
+    font-weight: 400;
+  
+  }
+  
+  .no{
+      color: #000080;
+      text-align: center;
+      font-weight: 400;
+    
+    }
+    .bu{
+        // border: 1px solid blueviolet;
+        float: right;
+      }

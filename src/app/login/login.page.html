@@ -1,0 +1,54 @@
+
+<ion-content padding class="login">
+  
+
+    <div style="margin-top: 0px;">
+      <h1 class="head">{{resConfig["login_title"]}}</h1>
+      <h4 class="sign" routerLink="/form">{{resConfig["login_sing"]}}</h4>
+      <h6 class="new" routerLink="/form">{{resConfig["login_new"]}}</h6>
+      <h6 class="or">{{resConfig["login_or"]}}</h6>
+      <h4 class="sign">{{resConfig["login_reg"]}}</h4>
+      <div class="center">
+        <form style="margin-top: 30px;">
+          <ion-item class="phone">
+            <ion-input [(ngModel)]="org_id" #s3="ngModel"
+             placeholder="{{resConfig.login_orgid}}" 
+            class="no" 
+            name="first3" required></ion-input>
+          </ion-item>
+          <ion-item class="phone">
+            <ion-input #s1="ngModel" type="number" [(ngModel)]="user_phone"
+             placeholder="{{resConfig.login_phone}}" class="no" 
+             name="first1" pattern="[0-9]{10}" required></ion-input>
+          </ion-item>
+          <div class="otp">
+            <ion-button color="tertiary" (click)="genOTP()">Send OTP</ion-button>
+          </div>
+          <ion-item class="phone">
+            <ion-input #s2="ngModel" class="no" type="number" [(ngModel)]="user_otp"
+             placeholder="{{resConfig.login_otp}}" name="first2" required></ion-input>
+          </ion-item>
+          <!-- <h6 class="or">(Or)</h6> -->
+          <ion-item class="phone" hidden="true">
+            <ion-input [(ngModel)]="user_mail" #s="ngModel"
+            size="10" type="email" placeholder="{{resConfig.login_email}}" class="no"
+            name="first" required></ion-input>
+          </ion-item>
+      
+        </form>
+      </div>
+        <br>
+      <div class="clear">
+        <ion-button [disabled]=" (s1.invalid || s2.invalid || s3.invalid)&& s.invalid " 
+        class="go" color="tertiary" (click)="authenticate()">{{resConfig["login_go"]}}</ion-button>
+      </div>
+    </div>
+      <br><br>
+      <div style="text-align: center;">
+        <ion-text style="text-align: center; font-size: 14px;  font-weight: 600;"> 
+          {{resConfig["login_com_name"]}}</ion-text>
+      </div>  
+  
+
+</ion-content>
+

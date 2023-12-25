@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="arc-container">
+    <div class="arc-hider"></div>
+    <div class="arc-inset">
+        o
+    </div>
+    <div class="arc-lowerInset">
+        o
+    </div>
+    <div class="arc-overlay">
+        85%
+    </div>
+    <div class="arc-wrapper">
+        <div class="arc2"></div>
+        <div class="arc1"></div>
+    </div>
+  </div>
+  <div class="clearfix">
+
+    <div class="c100" [ngClass]="['p' + value, isBig ? 'big' : 'small', color]">
+      <span>{{value}}%</span>
+      <div class="slice">
+          <div class="bar"></div>
+          <div class="fill"></div>
+      </div>
+  </div>
+  
+  </div>
+  <round-progress [current]="current" [max]="max"></round-progress>
+  <div class="positionRelative">
+
+    <round-progress
+        max="100"
+        current="[[myValue.percentage]]"
+        color="#4AB7EC"
+        bg-color="#56606B"
+        radius="35"
+        stroke="5"
+        semi="false"
+        rounded="false"
+        clockwise="true"
+        responsive="false"
+        duration="800"
+        animation="easeInOutQuart"
+        animation-delay="0">20%</round-progress>
+
+        <div class="percentageValue">
+            20 % // text that comes in cetner
+        </div>
+
+</div>
+<circle-progress
+  [percent]="10"
+  [radius]="100"
+  [outerStrokeWidth]="16"
+  [innerStrokeWidth]="8"
+  [outerStrokeColor]="'#78C000'"
+  [innerStrokeColor]="'#C7E596'"
+  [animation]="true"
+  [animationDuration]="300"
+></circle-progress>
+</ion-content>
+<ion-tab-bar class="tab" slot="bottom">
+  <ion-tab-button tab="Order History" routerLink="/home">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    <ion-label>Apply Leave</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="View Brouchure" routerLink="/planned-leave">
+    <ion-icon name="browsers"></ion-icon>
+    <ion-label>My Plan</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="return" routerLink="/emp-dashboard">
+    
+    <ion-icon name="people"></ion-icon>
+        <!-- <i class="fa fa-quote-right"></i> -->
+        <ion-label>DashBoard</ion-label>
+     
+    
+  </ion-tab-button>
+  <ion-tab-button tab="login" routerLink="/report">
+    <ion-icon name="create-outline"></ion-icon>
+    <ion-label>Reports</ion-label>
+  </ion-tab-button>
+  </ion-tab-bar>

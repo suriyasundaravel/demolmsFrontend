@@ -1,0 +1,42 @@
+{
+    "Planned":[
+         {"Id":0,"Dates":"2022-02-10","Reson":"Sick leave","status":"Accepted"},
+         {"Id":1,"Dates":"2022-02-12","Reson":"Annual leave","status":"Rejected"},
+         {"Id":2,"Dates":"2022-02-15","Reson":"Causal leave","status":"Rejected"},
+         {"Id":3,"Dates":"2022-02-17","Reson":"Causal leave","status":"Accepted"},
+         {"Id":4,"Dates":"2022-02-19","Reson":"Causal leave","status":"Accepted"},
+         {"Id":5,"Dates":"2022-02-23","Reson":"Sick leave","status":"Rejected"}
+       
+        
+         
+
+        
+       ],
+       "Upcoming": [
+        {"Date":"01-01-2022","Day":"Saturday","Reason":"New Year"},
+    {"Date":"14-01-2022","Day":"Friday","Reason":"Pongal"},
+    {"Date":"15-01-2022","Day":"Saturday","Reason":"Thiruvalluvar Day"},
+    {"Date":"16-01-2022","Day":"Sunday","Reason":"Uzhavar Thirunal"},
+    {"Date":"18-01-2022","Day":"Tuesday","Reason":"Thai Poosam"},
+    {"Date":"26-01-2022","Day":"Wednesday","Reason":"Republic Day"},
+    {"Date":"14-04-2022","Day":"Thursday","Reason":"Tamil New Year"},
+    {"Date":"15-04-2022","Day":"Friday","Reason":"Good Friday"},
+    {"Date":"01-05-2022","Day":"Sunday","Reason":"May Day"},
+    {"Date":"03-05-2022","Day":"Tuesday","Reason":"Ramzan"},
+    {"Date":"10-07-2022","Day":"Sunday","Reason":"Bakrid"},
+    {"Date":"09-08-2022","Day":"Tuesday","Reason":"Muharram"},
+    {"Date":"15-08-2022","Day":"Monday","Reason":"Independence Day"},
+    {"Date":"19-08-2022","Day":"Friday","Reason":"Krishna Jayanthi"},
+    {"Date":"31-08-2022","Day":"Wednesday","Reason":"Vinayakar Chathurthi"},
+    {"Date":"02-10-2022","Day":"Sunday","Reason":"Gandhi Jayanthi"},
+    {"Date":"04-10-2022","Day":"Tuesday","Reason":"Ayutha Pooja"},
+    {"Date":"05-10-2022","Day":"Wednesday","Reason":"Vijaya Dasami"},
+    {"Date":"02-10-2022","Day":"Sunday","Reason":"Gandhi Jayanthi"},
+    {"Date":"09-10-2022","Day":"Sunday","Reason":"Milad-un-Nabi"},
+    {"Date":"24-10-2022","Day":"Monday","Reason":"Deepavali"},
+    {"Date":"25-12-2022","Day":"Sunday","Reason":"Christmas"}
+
+          ]
+       
+ 
+ }

@@ -1,0 +1,104 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image" alt="Logo">
+          </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <div *ngIf="supervisorStatus">
+        <ion-buttons slot="start">
+          <ion-icon routerLink="/leave-application" style="margin-left: 15px;" slot="start" name="notifications"></ion-icon>
+          <ion-badge routerLink="/leave-application" slot="start" color="danger" 
+          style="position: absolute;margin-bottom:30px;border-radius: 10px;margin-left: 15px;">{{this.dataService.getpacount}}
+          </ion-badge>
+          <ion-button routerLink="/search" slot="start">
+            <ion-icon slot="start" name="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        
+      </div>
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content class="apply">
+  <h1 class="title">{{resConfig["eol_title"]}}</h1><br>
+  <ion-grid class="ion-text-center">
+
+    <ion-row class="ion-margin">
+      <ion-col>
+        <ion-title>
+
+            <ion-item-divider class="phone">
+              {{resConfig["emp_from"]}}<ion-input  class="no"  #f3="ngModel"  type="text" 
+              [(ngModel)]="start_date" (ionFocus)="openDatePicker('start_date')" name="first3" required></ion-input>
+      
+            </ion-item-divider>
+           <ion-button class="ion-float-right" (click)="searchData()">Get EOL</ion-button><br>
+
+        </ion-title>
+      </ion-col>
+    </ion-row>
+    <div style="margin-bottom: 10px;">
+      <ion-row>
+        <h3 class="count">Total Count:   {{historyCount}}</h3>
+      </ion-row>
+    </div>
+
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>From Date</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>To Date</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Name</ion-text>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngFor="let item of pencountRes">
+      <ion-col>
+        <ion-text (click)="getLeave(item.leaveId, item.userId, item.orgId)">
+          {{item.fromdt}}
+        </ion-text>
+      </ion-col>
+
+        <ion-col>
+          <ion-text>
+            {{item.todt}}
+          </ion-text>
+        </ion-col>
+  
+        <ion-col>
+          <ion-text>
+            {{item.name}}
+          </ion-text>
+        </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+</ion-content>
+<ion-tab-bar class="tab" slot="bottom">
+    <ion-tab-button tab="Order History" routerLink="/supervisor">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Apply Leave</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="View Brouchure" routerLink="/sup-dashboard">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Sup-Dash</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="login" routerLink="/leave-application">
+      <ion-icon name="create-outline"></ion-icon>
+      <ion-label>Pending Approvals</ion-label>
+    </ion-tab-button>
+</ion-tab-bar>

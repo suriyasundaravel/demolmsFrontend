@@ -1,0 +1,173 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <!-- <ion-back-button defaultHref="/"></ion-back-button> -->
+          <ion-avatar>
+            <img [src]="imageSrc" class="logo-image1" alt="Logo">
+          </ion-avatar>
+          <h2 style="font-weight: 600; color:#800000;">{{companyName}}</h2>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <div *ngIf="supervisorStatus">
+        <ion-buttons slot="start">
+          <ion-icon routerLink="/leave-application" style="margin-left: 15px;" slot="start" name="notifications"></ion-icon>
+          <ion-badge routerLink="/leave-application" slot="start" color="danger" 
+          style="position: absolute;margin-bottom:30px;border-radius: 10px;margin-left: 15px;">{{this.dataService.getpacount}}
+          </ion-badge>
+          <ion-button routerLink="/search" slot="start">
+            <ion-icon slot="start" name="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        
+      </div>
+      <ion-menu-button slot="end" class="menu"></ion-menu-button>
+    </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+<ion-content class="sup-dash">
+  <h1 class="title">{{resConfig["sup_title"]}}</h1>
+  <!-- <div  style="padding-top: 5%;" class="flex">
+     <ion-icon class="eng" name="person"></ion-icon>
+    <ion-toggle (ionChange)="toggleLang($event)" class="tog" color="light"></ion-toggle>
+    <ion-icon class="tamil" name="people"></ion-icon>
+  </div> -->
+  <div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="card-title">
+        Team Leave
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="text-align: center;">
+      <ion-row>
+        <ion-col size="4">
+          <ion-label class="head">From Date</ion-label>
+        </ion-col>
+        <ion-col size="4">
+          <ion-label class="head">To Date</ion-label>
+        </ion-col>
+        <ion-col size="4">
+        <ion-label class="head">Name</ion-label>
+        </ion-col>
+      </ion-row>
+      <!-- <div [ngClass]="{'limitTextHeight1': !showAllLeaveHistory}">
+        <ion-row *ngFor="let leave of supgetLeaveResData.data">
+          <ion-col size="4">
+            
+            <ion-label (click)="getLeave(leave.leaveId, leave.userId, leave.orgId)" class="date"  role="button" >{{leave.fromdt}}</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label >{{leave.todt}}</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label class="data">{{leave.status}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </div>
+      <button class="header" type="button" (click)="toggleLeaveHistory()">
+        {{ showAllLeaveHistory ? 'Show Less' : 'Show More' }}
+      </button> -->
+      <div *ngIf="filteredTeamLeaveData.length > 0 || filteredTeamLeaveData.length === 0">
+        <ion-row *ngFor="let item of showAllTeamLeaveDates ? supgetLeaveResData : filteredTeamLeaveData">
+          <ion-col size="4">
+            <ion-label (click)="getLeave(item.leaveId, item.userId, item.orgId)">{{item.fromdt}}</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label>{{item.todt}}</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label>{{item.name}}</ion-label>
+          </ion-col>
+        </ion-row>
+            
+    <!-- <div class="header" *ngIf="filteredTeamLeaveData.length === 0">
+      No Team Leave Found.
+    </div> -->
+
+      <button class="header" type="button"(click)="toggleShowTeamLeaveDates()">
+        {{ showAllTeamLeaveDates ? 'Show less' : 'Show more' }}
+      </button>
+    </div>
+    </ion-card-content>
+  </ion-card>
+  <br>
+  <br>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="card-title">
+        Team Plan
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="text-align: center;">
+      <ion-row>
+        <ion-col size="4">
+          <ion-label class="head">From Date</ion-label>
+        </ion-col>
+        <ion-col size="4">
+          <ion-label class="head">To Date</ion-label>
+        </ion-col>
+        <ion-col size="4">
+          <ion-label class="head">Name</ion-label>
+        </ion-col>
+      </ion-row>
+      <!-- <div [ngClass]="{'limitTextHeight': !showAllLeaveHistory1}">
+        <ion-row *ngFor="let plan of supgetPLeaveResData.data">
+          <ion-col size="4">
+            <a class="date"   role="button" >{{plan.fromdt}}</a>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label >{{plan.todt}}</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label class="data">{{plan.status}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </div>
+      <button class="header" type="button" (click)="toggleLeaveHistory1()">
+        {{ showAllLeaveHistory1 ? 'Show Less' : 'Show More' }}
+      </button> -->
+      <div *ngIf="filteredTeamPlanData.length > 0 || filteredTeamPlanData.length === 0">
+      
+        <ion-row *ngFor="let item of showAllTeamPlanDates ? supgetPLeaveResData : filteredTeamPlanData">
+          <ion-col size="4">
+            <ion-label>{{item.fromdt}}</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label>{{item.todt}}</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label>{{item.user_name}}</ion-label>
+          </ion-col>
+        </ion-row>
+        <!-- <div class="header" *ngIf="filteredTeamPlanData.length === 0">
+          No Team Plan found.
+        </div> -->
+
+      <button class="header" type="button" (click)="toggleShowTeamPlanDates()">
+        {{ showAllTeamPlanDates ? 'Show less' : 'Show more' }}
+      </button>
+    </div>
+    
+    
+      
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>
+<ion-tab-bar class="tab" slot="bottom">
+  <ion-tab-button tab="Order History" routerLink="/supervisor">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    <ion-label>Apply Leave</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="View Brouchure" routerLink="/emp-dashboard">
+    <ion-icon name="person"></ion-icon>
+    <ion-label>Emp-dash</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="login" routerLink="/leave-application">
+    <ion-icon name="create-outline"></ion-icon>
+    <ion-label>Pending Approvals</ion-label>
+  </ion-tab-button>
+  </ion-tab-bar>
+
