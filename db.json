@@ -1,0 +1,184 @@
+{
+  
+  "login":{
+    "login_title":"Leave Management",
+    "login_sing":"Sign Up",
+    "login_new":"New User",
+    "login_or":"Or",
+    "login_reg":"Registered User",
+    "login_orgid":"Org Id",
+    "login_email":"Email Id",
+    "login_phone":"Phone",
+    "login_sendotp":"Send OTP",
+    "login_otp":"OTP",
+    "login_eng":"Eng",
+    "login_tam":"Tamil",
+    "login_go":"Go",
+    "login_com_name":"Developed By Magnitudo Technologies"
+  },
+  "sign_up":{
+    "sign_title":"Sign Up",
+    "sign_eng":"Eng",
+    "sign_tam":"Tamil",
+    "sign_name":"Enter Name",
+    "sign_org":"Org Code",
+    "sign_ph1":"Phone No (Pri.no)",
+    "sign_ph2":"Phone No (Sec.no)",
+    "sign_sendotp":"Send OTP",
+    "sign_otp":"OTP",
+    "sign_email":"Email",
+    "sign_submit":"Submit",
+    "sign_cancel":"Cancel"
+  },
+  "emp_dashboard":{
+    "emp_title":"Employee Dashboard",
+    "emp_leave_blnc":"Leave Balance",
+    "emp_upcoming":"Upcoming Leave",
+    "emp_date":"Date",
+    "emp_desc":"Description",
+    "emp_leave_planner":"Leave Planner",
+    "emp_planner_date":"Date",
+    "emp_comments":"Comments",
+    "emp_Action":"Action",
+    "emp_leave_history":"Leave History"
+  },
+  "sup_dashboard":{
+    "sup_title":"Supervisor Dashboard",
+    "sup_worker":"Workers On Leave Today",
+    "sup_worker_date":"Date",
+    "sup_worker_name":"Name",
+    "sup_worker_status":"Status",
+    "sup_planned":"Planned Leave",
+    "sup_planned_date":"Date",
+    "sup_planned_name":"Name",
+    "sup_planned_status":"Status"
+
+  },
+  "leave_application":{
+    "leave_title":"Pending Approver",
+    "leave_name":"Name",
+    "leave_date":"Date",
+    "leave_reason":"Reason",
+    "leave_action":"Action",
+    "leave_accept":"Accept",
+    "leave_reject":"Reject"
+  },
+  "approve":{
+    "approve_name":"Employer Name",
+    "approve_id":"Employer Id",
+    "approve_fdate":"From Date",
+    "approve_tdate":"To Date",
+    "approve_tol":"Type Of Leave",
+    "app_annual_leave":"Annual Leave",
+    "app_casual_leave":"Casual Leave",
+    "app_sick_leave":"Sick Leave",
+    "app_marriage_leave":"Marriage Leave",
+    "app_paid_leave":"Paid Leave",
+    "approve_cmd":"Comments",
+    "approve_appcmd":"Approve Comments",
+    "approve_reason":"Reason",
+    "approve_approve":"Approve",
+    "approve_reject":"Reject"
+  },
+  "emp_details":{
+    "emp_title":"Employee Details",
+    "emp_sub":"Apply Leave",
+    "emp_leave_type":"Select Type",
+    "emp_annual_leave":"Annual Leave",
+    "emp_casual_leave":"Casual Leave",
+    "emp_sick_leave":"Sick Leave",
+    "emp_marriage_leave":"Marriage Leave",
+    "emp_paid_leave":"Paid Leave",
+    "emp_from":"From Date",
+    "emp_to":"To Date",
+    "emp_reason":"Reason",
+    "emp_status":"Status",
+    "emp_comments":"comments",
+    "emp_apply":"Apply",
+    "emp_approver":"Approver Comments"
+  },
+  "planned_leave":{
+    "planned_title":"Planned Leave",
+    "planned_sub":"Apply Leave",
+    "planned_cmd":"Comments",
+    "planned_butleave":"Planned Leave",
+    "planned_leave":"Type Of Leave",
+    "pl_annual_leave":"Annual Leave",
+    "pl_casual_leave":"Casual Leave",
+    "pl_sick_leave":"Sick Leave",
+    "pl_marriage_leave":"Marriage Leave",
+    "pl_paid_leave":"Paid Leave",
+    "planned_fdate":"From Date",
+    "planned_tdate":"To Date",
+    "planned_approver":"Approver Comments"
+  },
+  "holiday":{
+    "holiday_title":"List Of Holidays",
+    "holiday_date":"Date",
+    "holiday_day":"Day",
+    "holiday_reason":"Reason"
+  },
+  "calendar":{
+    "cal_title":"Leave Calendar",
+    "cal_name":"Name",
+    "cal_date":"Date",
+    "cal_action":"Action"
+  },
+  "eol":{
+    "eol_title":"Employee On Leave",
+    "eol_duration":"Duration",
+    "eol_apply":"Apply",
+    "eol_name":"Name",
+    "eol_date":"date",
+    "eol_comments":"Comments"
+  },
+  "supervisor":{
+    "supervisor_title":"Supervisor Details",
+    "supervisor_sub":"Apply Leave",
+    "supervisor_name":"Supervisor Name",
+    "supervisor_id":"Supervisor Id",
+    "supervisor_type":"Type Of Leave",
+    "supervisor_fdate":"From Date",
+    "supervisor_todate":"To Date",
+    "supervisor_comments":"Comments",
+    "supervisor_":"Upload Documents"
+  },
+  "permission":{
+    "per_title":"Apply For Permission",
+    "per_emp":"Employee Name",
+    "per_id":"Employee Id",
+    "per_timing":"Timing",
+    "per_one":"One Hour",
+    "per_two":"Two Hour",
+    "per_half":"Half Day",
+    "per_reason":"Reason",
+    "per_apply":"Apply"
+
+  },
+  "2022_holidays": [
+    {"Date":"01-01-2022","Day":"Saturday","Reason":"New Year"},
+{"Date":"14-01-2022","Day":"Friday","Reason":"Pongal"},
+{"Date":"15-01-2022","Day":"Saturday","Reason":"Thiruvalluvar Day"},
+{"Date":"16-01-2022","Day":"Sunday","Reason":"Uzhavar Thirunal"},
+{"Date":"18-01-2022","Day":"Tuesday","Reason":"Thai Poosam"},
+{"Date":"26-01-2022","Day":"Wednesday","Reason":"Republic Day"},
+{"Date":"14-04-2022","Day":"Thursday","Reason":"Tamil New Year"},
+{"Date":"15-04-2022","Day":"Friday","Reason":"Good Friday"},
+{"Date":"01-05-2022","Day":"Sunday","Reason":"May Day"},
+{"Date":"03-05-2022","Day":"Tuesday","Reason":"Ramzan"},
+{"Date":"10-07-2022","Day":"Sunday","Reason":"Bakrid"},
+{"Date":"09-08-2022","Day":"Tuesday","Reason":"Muharram"},
+{"Date":"15-08-2022","Day":"Monday","Reason":"Independence Day"},
+{"Date":"19-08-2022","Day":"Friday","Reason":"Krishna Jayanthi"},
+{"Date":"31-08-2022","Day":"Wednesday","Reason":"Vinayakar Chathurthi"},
+{"Date":"02-10-2022","Day":"Sunday","Reason":"Gandhi Jayanthi"},
+{"Date":"04-10-2022","Day":"Tuesday","Reason":"Ayutha Pooja"},
+{"Date":"05-10-2022","Day":"Wednesday","Reason":"Vijaya Dasami"},
+{"Date":"02-10-2022","Day":"Sunday","Reason":"Gandhi Jayanthi"},
+{"Date":"09-10-2022","Day":"Sunday","Reason":"Milad-un-Nabi"},
+{"Date":"24-10-2022","Day":"Monday","Reason":"Deepavali"},
+{"Date":"25-12-2022","Day":"Sunday","Reason":"Christmas"}
+
+      ]
+   
+}

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Leave mgmt",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
